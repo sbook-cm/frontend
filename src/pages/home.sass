@@ -1,0 +1,243 @@
+abbr
+  background-color: #7773
+  font-weight: bold
+  border-radius: 3px
+  padding: 2px
+
+footer
+  background-color: #123
+  color: white
+  text-align: center
+  padding: 10px 20px
+
+footer a
+    color: white
+    text-decoration: none
+    margin: 0 10px
+
+.nova-oval
+  font-family: "Nova Oval", system-ui
+  font-weight: 400
+  font-style: normal
+
+body
+    margin: 0
+    font-family: Arial, sans-serif
+    color: #E0E0E0
+    background-image: linear-gradient(to top right, #0757 0%, #0000 20%, #0000 49%, #1237 50%, #0000 51%, #0000 80%, #5057 100%), url('/image/back-gmail.png')
+    background-attachment: fixed
+    background-size: 100%
+
+header
+    height: 50px
+    background-color: #1E1E1E
+    z-index: 20
+    transition: 10s
+
+header.sticky
+    position: sticky
+    top: 0
+    background-color: #1E1E1E55
+    backdrop-filter: blur(5px)
+    transition: 0.4s
+
+header.sticky:hover
+  backdrop-filter: blur(1px)
+
+header.sticky + *
+    padding-top: 25px
+
+
+nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+
+nav .logo
+    font-size: 1.5em
+    color: #BB86FC
+    text-decoration: none
+
+
+nav ul
+    list-style: none
+    margin: 0
+    padding: 10px 20px
+    display: flex
+    gap: 15px
+
+
+nav ul li
+    margin: 0
+
+
+nav ul li a
+  color: #E0E0E0
+  text-decoration: none
+  padding: 5px 10px
+  border-radius: 5px
+  transition: background-color 0.3s
+
+
+nav ul li a:hover
+  background-color: #BB86FC
+  color: #121212
+
+
+.hero
+  text-align: center
+  padding: 100px 20px
+  background-color: #1124
+  backdrop-filter: blur(2px)
+
+
+.hero h1
+    font-size: 4em
+    color: #BB86FC
+
+
+.hero a
+  position: relative
+  text-align: right
+  -webkit-transition-duration: 0.4s /* Safari */
+  transition-duration: 0.4s
+
+
+.hero a span
+  background: #90EE90
+  display: inline-block
+  position: absolute
+  top: 0
+  right: 0
+  width: 0
+  height: 100%
+  transition: all 0.4
+  padding: 0
+  margin: 0
+  z-index: -1
+
+
+.hero a:hover span
+  padding: 0
+  margin: 0
+  transition: 0.4s
+  width: 100%
+
+
+.intro, .features, .about
+    padding: 20px
+    background-color: #1E1E1E55
+    backdrop-filter: blur(5px)
+    border: 3px #333a solid
+    margin: 20px 0
+    transition: 0.4s
+
+.intro:hover, .features:hover, .about:hover
+  border: 3px #3333 solid
+
+
+.intro h2, .features h2, .about h2
+    color: #BB86FC
+
+
+.cards
+    display: flex
+    flex-wrap: wrap
+    gap: 20px
+    justify-content: center
+    padding: 20px
+
+
+.card
+    background-color: #2C2C2C
+    border-radius: 10px
+    padding: 20px
+    width: 400px
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7)
+    transition: transform 0.3s
+
+
+.card:hover
+  transform: translateY(-10px)
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 1)
+
+
+.card h2
+  color: #BB86FC
+  margin-top: 0
+  font-size: xxx-large
+  font-family: "Nova Oval", system-ui
+  font-weight: 400
+  font-style: normal
+
+
+#note-card
+
+  background-color: #6643
+
+
+#note-card:hover
+
+  border: 5px #6643 solid
+
+#pango-card
+
+  background-color: #aaa3
+
+#pango-card:hover
+
+  border: 5px #aaa3 solid
+
+#quizz-card
+
+  background-color: #4663
+
+#quizz-card:hover
+
+  border: 5px #4663 solid
+
+#school-card
+
+  background-color: #6663
+
+#school-card:hover
+
+  border: 5px #6663 solid
+
+#school-card, #quizz-card, #note-card, #pango-card
+
+  transition: 0.4s
+  border: 5px #0000 solid
+  backdrop-filter: blur(2px)
+
+#school-card:hover, #quizz-card:hover, #note-card:hover, #pango-card:hover
+
+  background-color: #0000
+  backdrop-filter: blur(0px)
+
+
+.card p
+    margin-bottom: 10px
+    font-size: x-large
+    color: white
+
+
+.card .extended
+    color: darkgray
+    font-size: small
+    display: inline
+
+
+.features ul
+    list-style: none
+    padding: 0
+
+
+.features ul li
+    margin: 10px 0
+
+
+.features ul li strong
+    color: #BB86FC
+
