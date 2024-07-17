@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/Home.jsx';
-import Dashboard from './pages/Dashboard.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Layout from './pages/Layout.jsx';
-import Signin from './pages/Signin.jsx';
-import Signup from './pages/Signup.jsx';
 import { User } from './sbook.jsx';
+const Signin = React.lazy(() => import('./pages/Signin.jsx'));
+const Signup = React.lazy(() => import('./pages/Signup.jsx'));
+const Dashboard = React.lazy(() => import('./pages/Dashboard.jsx'));
+const Home = React.lazy(() => import('./pages/Home.jsx'));
 // import { useEffect } from 'react';
 // import { useLocation } from 'react-router-dom';
 
@@ -49,10 +49,13 @@ function App() {
       <React.StrictMode>
         <BrowserRouter>
           <Routes>
-            <Route index element={<Dashboard />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/" element={<Layout />}>
+              <Route index element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </React.StrictMode>,

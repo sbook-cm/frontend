@@ -1,1 +1,41 @@
+#left,
+#right,
+#center
+  display: inline-block
+  height: 100%
 
+@media all and (min-width: 700px)
+  #left
+    width: 29%
+  #right
+    width: 29%
+  #center
+    width: 55%
+
+@media all and (max-width: 700px)
+  #left
+    width: 0%
+  #right
+    width: 0%
+  #center
+    width: 80%
+    margin:
+      left: 10%
+      right: 10%
+
+
+.center-card
+  width: 100%
+  margin: 10px
+  border-radius: var(--card-round)
+  border: 1px var(--grey1) solid
+  background-color: var(--base2)
+  padding: 5px
+  p.title
+    font-size: medium
+    text-align: left
+  div.desc
+    padding: 10px
+    background-color: var(--base1)
+    border-radius: inherit
+    font-size: small

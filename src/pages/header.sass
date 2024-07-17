@@ -1,0 +1,33 @@
+header
+  padding: 0px
+  height: 50px
+  width: 100%
+  background-color: var(--header)
+
+#menu-like-icon
+  display: inline-block
+  cursor: pointer
+  transition: 0.5s
+  padding: 7px
+#menu-like-icon > .bar1, #menu-like-icon > .bar2, #menu-like-icon > .bar3
+  width: 30px
+  height: 4px
+  background-color: #333
+  margin: 5px 0
+  transition: 0.5s
+  border-radius: 3px
+#menu-like-icon.close > .bar1
+  transform: translate(0, 9px) rotate(-45deg)
+#menu-like-icon.close > .bar2
+  opacity: 0
+#menu-like-icon.close > .bar3
+  transform: translate(0, -9px) rotate(45deg)
+#menu-like-icon.close
+  transform: rotate(180deg)
+
+
+header button.profile
+  position: absolute
+  right: 0
+  top: 0
+  height: inherit

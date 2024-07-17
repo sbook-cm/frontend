@@ -1,9 +1,6 @@
-import { useState } from 'react';
-//import reactLogo from './assets/react.svg';
-//import viteLogo from '/vite.svg';
+//import { useState } from 'react';
 import './home.sass';
 import { Link } from 'react-router-dom';
-import background from '../svg/back-dark.svg';
 import $ from 'jquery';
 
 function Home() {
@@ -17,14 +14,22 @@ function Home() {
   }
   return (
     <>
-      <main>
-          <section className="hero">
-              <h1 className="w3-jumbo nova-oval">Where Learning Comes Alive</h1>
+        <main>
+            <section className="hero">
+                <h1 className="w3-jumbo nova-oval">Where Learning Comes Alive</h1>
               <p>The ultimate platform for students and teachers to connect, learn, and grow.</p>
               <Link
+                  to="/signin"
+                  className="w3-hover-border-deep-purple w3-deep-purple w3-border-white w3-border w3-large w3-right-align w3-button"
+              >
+                  Sign in
+                  <span></span>
+              </Link>
+              <Link
                   to="/signup"
-                  className="w3-hover-border-white w3-hover-deep-purple w3-border-deep-purple w3-border w3-large w3-right-align w3-button w3-rignt">
-                  Get Started
+                  className="w3-hover-border-white w3-hover-deep-purple w3-border-deep-purple w3-border w3-large w3-right-align w3-button"
+                 >
+                    Get Started
                   <span></span>
               </Link>
           </section>

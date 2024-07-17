@@ -1,3 +1,6 @@
+@import fonts
+
+
 :root
   --background-color: white
 :root.dark
@@ -5,3 +8,63 @@
 
 body
   background-color: var(--background-color)
+
+@for $i from 1 through 100
+  .bg-a1-a#{$i}
+    background-color: rgba(var(--base), #{$i})
+
+.bg-a
+  background-color: var(--base)
+
+
+button,
+.button
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+  border: none
+  display: inline-block
+  vertical-align: middle
+  overflow: hidden
+  text-decoration: none
+  color: inherit
+  background-color: inherit
+  text-align: center
+  cursor: pointer
+  white-space: nowrap
+
+button.b,
+.button.b
+  background-color: transparent
+
+button.b.f1,
+.button.b.f1
+  border: 1px var(--focus1) solid
+  background-color: transparent
+
+button.b.f2,
+button.b.f2
+  border: 1px var(--focus2) solid
+  background-color: transparent
+
+button.f1,
+.button.f1
+  background-color: var(--focus1)
+
+button.f2,
+.button.f2
+  background-color: var(--focus2)
+
+button:hover,
+.button:hover
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+
+button:disabled,
+.button:disabled
+  cursor: not-allowed
+  opacity: 0.3
+  filter: grayscale(4)
