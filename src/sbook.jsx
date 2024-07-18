@@ -2,11 +2,9 @@ import $ from 'jquery';
 
 let backend = "http://localhost:1234/";
 
-let host = window.location.host;
-if(host.startsWith("www.")) host = host.slice(4);
 
-if(host == "sbook.onvercel.app" || host == "sbook-cm.web.app") backend = "sbook-back.up.railway.app";
-else if(host == "localhost") backend = "http://localhost:1234/";
+if(window.location.host.startsWith("localhost")) backend = "http://localhost:1234/";
+else backend = "https://backend-5wak.onrender.com/";
 
 
 

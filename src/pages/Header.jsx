@@ -20,7 +20,7 @@ function Header() {
           <div className="bar3"></div>
         </div>
 
-        <button class="profile b f2">
+        <button className="profile b f2">
           <img src={userProfile} height="40" className="w3-circle" />
         </button>
       </header>
