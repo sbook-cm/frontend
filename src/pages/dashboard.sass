@@ -1,18 +1,21 @@
 #left,
 #right,
 #center
+  margin-top: 100px
   display: inline-block
   height: 100%
+canvas
+  width: 100%
 
-@media all and (min-width: 700px)
+@media all and (min-width: 900px)
   #left
-    width: 28%
+    width: 23%
   #right
-    width: 28%
+    width: 23%
   #center
-    width: 40%
+    width: 50%
 
-@media all and (max-width: 700px)
+@media all and (max-width: 900px)
   #left
     width: 0%
   #right
@@ -28,8 +31,8 @@
   width: 100%
   margin: 10px
   border-radius: var(--card-round)
-  border: 1px var(--grey1) solid
-  background-color: var(--base2)
+  border: 1px var(--base3) solid
+  background-color: var(--base1)
   padding: 5px
   p.title
     font-size: medium

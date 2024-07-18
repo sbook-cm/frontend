@@ -1,14 +1,38 @@
 header
+  --border-color: var(--base2)
+  --border-size: 1px
+  --round1: 10px
+  position: fixed
+  top: 0px
+  right: -40px
+  transition: right 0.4s
+  border-radius: var(--round1)
+  margin: 20px
   padding: 0px
   height: 50px
   width: 100%
-  background-color: var(--header)
+  //max-width: 500px
+  border: var(--border-size) var(--border-color) solid
+  background-color: rgba(var(--base1), 0.9)
+  backdrop-filter: blur(20px)
+
+header.closed
+  right: calc(-100% + 30px)
+  width: 100%
+  max-width: 100%
+
+header > div:first-child
+  border-right: var(--border-size) var(--border-color) solid !important
+  border-radius: var(--round1) 0 0 var(--round1)
+  display: inline-block
+  margin: 0
+  padding: 0
 
 #menu-like-icon
-  display: inline-block
   cursor: pointer
-  transition: 0.5s
+  transition: 0.7s
   padding: 7px
+  margin: 0
 #menu-like-icon > .bar1, #menu-like-icon > .bar2, #menu-like-icon > .bar3
   width: 30px
   height: 4px
@@ -26,8 +50,81 @@ header
   transform: rotate(180deg)
 
 
+header .links
+  display: inline-block
+  height: 100%
+  padding: 0
+  margin: 0
+
+header .links a
+  transition: 0.5px
+  font-family: "Nova Square", system-ui
+  text-decoration: none
+  font-size: 20px
+  margin:
+    left: 20px
+    right: 20px
+
+  &:hover
+    border-bottom: 1px var(--focus-a2) solid
+  &.selected
+    border-bottom: 3px var(--focus-a2) solid
+
+
 header button.profile
   position: absolute
-  right: 0
+  right: 20px
   top: 0
   height: inherit
+
+header span.themeSwitchContainer
+  position: absolute
+  right: 70px
+  top: 0
+  border: none
+
+.mobilebar
+  width: 100%
+  bottom: 0
+  left: 0
+  transition: 0.4s
+.mobilebar.closed
+  height: 0
+
+#rightbar
+  transition: 0.4s
+  background-color: rgba(var(--base3), 0.9)
+  backdrop-filter: blur(20px)
+  border: 1px var(--base4) solid
+  div.profile
+    display: block
+    width: 100%
+    padding: 5px
+    div:last-child
+      //float: right
+      h3
+        font-size: 15px
+        text-decoration: bold
+        margin-left: 5px
+        text-align: center
+    img
+      height: 50px
+      vertical-align: center
+      border-radius: 50px
+      border: 0.1px black solid
+    & > div
+      display: inline-block
+
+@media all and (min-width: 700px)
+  #rightbar
+    width: 320px
+    border-radius: 10px 0 0 10px !important
+    position: fixed
+    top: 100px
+    right: 0px
+    margin-right: 0
+    height: calc(100% - 100px - 10px)
+    //box-shadow: -1px 0px 10px black
+    &.closed
+      width: 0px
+

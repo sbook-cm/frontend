@@ -1,4 +1,8 @@
 import $ from 'jquery';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+
 
 let backend = "http://localhost:1234/";
 
@@ -133,16 +137,41 @@ class Theme {
     localStorage.theme = "dark";
   }
   static init() {
-    if(Theme.current() == "dark") Sbook.dark();
+    if(Theme.current() == "dark") Theme.dark();
     else Theme.light();
   }
 }
+
+function ThemeSwitch(props) {
+  let [theme, themeChange] = useState(Theme.current());
+  let classes = props.className || "";
+  return (
+    <div className={"button " + classes}>
+      {theme == "dark"?(
+        <span className="w3-text-yellow themeswitch-button" onClick={()=>(Theme.light(), themeChange("light"))}>
+          <FontAwesomeIcon border size="2x" icon={faSun} />
+        </span>
+      ):(
+        <span className="w3-text-dark-blue themeswitch-button" onClick={()=>(Theme.dark(), themeChange("dark"))}>
+          <FontAwesomeIcon border size="2x" icon={faMoon} />
+        </span>
+      )}
+    </div>
+  );
+}
 Theme.config = {
-  "--base": ["#fff", "#223"],
-  "--base2": ["#cca", "#334"],
-  "--focus1": ["#a7e", "#a7e"],
-  "--focus2": ["#F2C464", "#b28424"],
+  "--base" : ["#ffffff", "#232638"],
+  "--base1": ["#f9f9f9", "#26293a"],
+  "--base2": ["#f3f3f3", "#292c3e"],
+  "--base3": ["#efefef", "#2c2f41"],
+  "--base4": ["#eaeaea", "#2f3344"],
+  "--focus-a1": ["#ebf", "#350b54"],
+  "--focus-a2": ["#a7e", "#a7e"],
+  "--focus-b1": ["#FFDf84", "#a25414"],
+  "--focus-b2": ["#F2C464", "#b28424"],
   "--text": ["black", "white"],
+  "--text-nofocus": ["#aaa", "#444"],
+  "--text-focus": ["#black", "#white"],
   "--grey1": ["#ccc", "#333"],
   "--grey2": ["#aaa", "#444"],
   "--grey3": ["#888", "#666"],
@@ -155,5 +184,5 @@ function Notify(message) {
   new Notification(message);
 }
 
-export { User, Event };
+export { User, Event, Theme, ThemeSwitch };
 

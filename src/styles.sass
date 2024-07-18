@@ -1,13 +1,10 @@
 @import fonts
 
 
-:root
-  --background-color: white
-:root.dark
-  --background-color: #332
-
 body
-  background-color: var(--background-color)
+  background-color: var(--base)
+  transition: 1s
+  color: var(--text)
 
 @for $i from 1 through 100
   .bg-a1-a#{$i}
@@ -32,7 +29,6 @@ button,
   overflow: hidden
   text-decoration: none
   color: inherit
-  background-color: inherit
   text-align: center
   cursor: pointer
   white-space: nowrap
@@ -41,26 +37,44 @@ button.b,
 .button.b
   background-color: transparent
 
-button.b.f1,
-.button.b.f1
-  border: 1px var(--focus1) solid
+button.b.fa1,
+.button.b.fa1
+  border: 1px var(--focus-a1) solid
   background-color: transparent
 
-button.b.f2,
-button.b.f2
-  border: 1px var(--focus2) solid
+button.b.fa2,
+button.b.fa2
+  border: 1px var(--focus-a2) solid
   background-color: transparent
 
-button.f1,
-.button.f1
-  background-color: var(--focus1)
+button.b.fb1,
+.button.b.fb1
+  border: 1px var(--focus-b1) solid
+  background-color: transparent
 
-button.f2,
-.button.f2
-  background-color: var(--focus2)
+button.b.fb2,
+button.b.fb2
+  border: 1px var(--focus-b2) solid
+  background-color: transparent
 
-button:hover,
-.button:hover
+button.fa1,
+.button.fa1
+  background-color: var(--focus-a1)
+
+button.fa2,
+.button.fa2
+  background-color: var(--focus-a2)
+
+button.fb1,
+.button.fb1
+  background-color: var(--focus-b1)
+
+button.fb2,
+.button.fb2
+  background-color: var(--focus-b2)
+
+button.shadow:hover,
+.button.shadow:hover
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
 
 button:disabled,
@@ -68,3 +82,7 @@ button:disabled,
   cursor: not-allowed
   opacity: 0.3
   filter: grayscale(4)
+
+.themeswitch-button
+  width: 50px
+  height: 50px
