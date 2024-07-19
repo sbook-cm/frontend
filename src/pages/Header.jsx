@@ -33,6 +33,18 @@ function RightBar() {
           </div>
         </Link>
       </div>
+      <hr />
+      <h4  className="settings-header button">
+        <Link to="/settings">settings</Link>
+      </h4>
+      <div  className="settings-links">
+        <Link className="button" to="/settings/profile">profile</Link>
+        <Link className="button" to="/settings/connections">connections</Link>
+        <Link className="button" to="/settings/sessions">sessions</Link>
+        <hr />
+        <Link className="button" to="/logout">logout</Link>
+      </div>
+      <hr />
     </div>
   );
 }
@@ -64,7 +76,7 @@ function Header() {
   }
   return (
     <>
-      <header className={isClosed?"closed":""}>
+      <header className={isClosed?"closed navheader":"navheader"}>
         <div>
           <div id="menu-like-icon" className={!isClosed?"button close":"button"} onClick={(e)=>{close(!isClosed);beingTouched(true);if(rbar.isopen&&!isClosed)rbar.open(false);}}>
             <div className="bar1"></div>

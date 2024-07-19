@@ -37,6 +37,7 @@ class User extends ModelInter {
         dataType: "json",
         url: backend + localStorage.sessionid + `/user.json`,
         success: function(data) {
+          if(data.sessionid) localStorage.sessionid = data.sessionid;
           if(data.ok && data.user) resolve(new User(data.user));
           else reject(data);
         },
@@ -59,6 +60,7 @@ class User extends ModelInter {
           password: password
         },
         success: function(data) {
+          if(data.sessionid) localStorage.sessionid = data.sessionid;
           if(data.flashes) data.flashes.map(Notify);
           if(data.ok) {
             localStorage.sessionid = data.sessionid
@@ -101,6 +103,7 @@ class Event extends ModelInter {
         data: { number },
         error: reject,
         success: function(data) {
+          if(data.sessionid) localStorage.sessionid = data.sessionid;
           if(!data.ok) reject(data);
           console.log(data);
           resolve(data.events.map((e) => new Event(e)));
@@ -159,12 +162,9 @@ function ThemeSwitch(props) {
     </div>
   );
 }
+
 Theme.config = {
   "--base" : ["#ffffff", "#232638"],
-  "--base1": ["#f9f9f9", "#26293a"],
-  "--base2": ["#f3f3f3", "#292c3e"],
-  "--base3": ["#efefef", "#2c2f41"],
-  "--base4": ["#eaeaea", "#2f3344"],
   "--focus-a1": ["#ebf", "#350b54"],
   "--focus-a2": ["#a7e", "#a7e"],
   "--focus-b1": ["#FFDf84", "#a25414"],
@@ -178,6 +178,18 @@ Theme.config = {
   "--header": [`#aaaa`, `#444a`],
   "--card-round": ["5px", "5px"],
 };
+let l = new w3color(Theme.config["--base"][0]), d = new w3color(Theme.config["--base"][1]);
+let p = 20;
+for(let i = 0; i < p; i++) {
+  l.darker(20 / p * 1.5);
+  d.lighter(20 / p);
+
+  Theme.config[`--base${i}`] = [
+    l.toHexString(),
+    d.toHexString(),
+  ];
+}
+
 $(Theme.init);
 
 function Notify(message) {

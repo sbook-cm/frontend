@@ -1,4 +1,4 @@
-header
+header.navheader
   --border-color: var(--base2)
   --border-size: 1px
   --round1: 10px
@@ -16,12 +16,12 @@ header
   background-color: rgba(var(--base1), 0.9)
   backdrop-filter: blur(20px)
 
-header.closed
+header.closed.navheader
   right: calc(-100% + 30px)
   width: 100%
   max-width: 100%
 
-header > div:first-child
+header.navheader > div:first-child
   border-right: var(--border-size) var(--border-color) solid !important
   border-radius: var(--round1) 0 0 var(--round1)
   display: inline-block
@@ -50,13 +50,13 @@ header > div:first-child
   transform: rotate(180deg)
 
 
-header .links
+header.navheader .links
   display: inline-block
   height: 100%
   padding: 0
   margin: 0
 
-header .links a
+header.navheader .links a
   transition: 0.5px
   font-family: "Nova Square", system-ui
   text-decoration: none
@@ -71,13 +71,13 @@ header .links a
     border-bottom: 3px var(--focus-a2) solid
 
 
-header button.profile
+header.navheader button.profile
   position: absolute
   right: 20px
   top: 0
   height: inherit
 
-header span.themeSwitchContainer
+header.navheader span.themeSwitchContainer
   position: absolute
   right: 70px
   top: 0
@@ -128,3 +128,28 @@ header span.themeSwitchContainer
     &.closed
       width: 0px
 
+
+#rightbar
+  hr
+    width: 80%
+    text-align: center
+    margin:
+      left: 10%
+      right: 10%
+    background-color: var(--base4)
+  .settings-header
+    text-decoration: bold
+    font-size: x-large
+    font-family: "Nova Mono", "Nova Script"
+    text-align: center
+  .settings-links > *
+    display: block
+    text-align: justify
+
+  .settings-links,
+  .settings-header
+    padding: 15px
+    margin: 15px
+    text-align: center
+    width: 100%
+    font-size: large

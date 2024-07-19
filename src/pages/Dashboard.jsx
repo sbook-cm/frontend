@@ -91,12 +91,11 @@ function Loader(props) {
 function Dashboard() {
   let [events, setEvents] = useState([]);
   useEffect(() => {
-      async function fetchEvents() {
-        await Event.get_latest(20).then(function(callevent) {
+      setTimeout(function fetchEvents() {
+        Event.get_latest(20).then(function(callevent) {
           setEvents(callevent);
         });
-      }
-      fetchEvents();
+      }, 5000);
     }, []);
   return (
     <>

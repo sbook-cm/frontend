@@ -14,7 +14,7 @@ function Home() {
   }
   return (
     <>
-        <main>
+        <main className="home">
             <section className="hero">
                 <h1 className="w3-jumbo nova-oval">Where Learning Comes Alive</h1>
               <p>The ultimate platform for students and teachers to connect, learn, and grow.</p>
@@ -54,7 +54,7 @@ function Home() {
               <h2>Welcome to Sbook</h2>
               <p>Sbook is a comprehensive e-learning platform designed to make education more accessible and effective for students, teachers, and schools. Our tools and features are crafted to enhance learning experiences and provide valuable resources for educational growth.</p>
           </section>
-          <header>
+          <header className="home">
               <nav>
                   <a href="#" className="logo nova-oval">
                       {/*<img src="/image/sbook.png" width="40px" className="w3-left w3-xxlarge" style="margin: 5px;" />Sbook*/}
