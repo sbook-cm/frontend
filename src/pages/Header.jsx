@@ -22,7 +22,7 @@ function RightBar() {
     });
   }, []);
   return (
-    <div id="rightbar" className={!rightBarOpen?" closed":""}>
+    <div id="rightbar" className={!rbar.isopen?"colorful-0 closed":"colorful-0"}>
       <div className="profile button">
         <Link to="/settings/profile">
           <div>
@@ -62,21 +62,25 @@ function Header() {
   let links = [
     ["/", "Dashboard"],
     ["/note", "Note"],
+    ["/settings", "Settings"],
   ];
   function isCurrentPath(path) {
-    return window.location.pathname == path;
+    if(path != "/") return window.location.pathname.startsWith(path);
+    return path == window.location.pathname;
   }
   window.onscroll = function() {
-    if(window.pageYOffset > 10 && !touched) {
-      close(true);
-    } else if(isClosed) {
-      close(false);
-      beingTouched(false);
-    }
+    setTimeout(function() {
+      if(window.pageYOffset > 10 && !touched) {
+        close(true);
+      } else if(isClosed) {
+        close(false);
+        beingTouched(false);
+      }
+    }, 400);
   }
   return (
     <>
-      <header className={isClosed?"closed navheader":"navheader"}>
+      <header className={isClosed?"closed navheader colorful-15":"navheader colorful-15"}>
         <div>
           <div id="menu-like-icon" className={!isClosed?"button close":"button"} onClick={(e)=>{close(!isClosed);beingTouched(true);if(rbar.isopen&&!isClosed)rbar.open(false);}}>
             <div className="bar1"></div>
@@ -86,13 +90,13 @@ function Header() {
         </div>
         <span className="links">
           {links.map(([url, text]) => (
-            <Link to={url} key={url} className={"w3-bar-item"+(isCurrentPath(url)?" selected":"")}>{text}</Link>
+            <a href={url} key={url} className={"w3-bar-item"+(isCurrentPath(url)?" selected":"")}>{text}</a>
           ))}
         </span>
         <button className="profile b fa1" onClick={() => rbar.open(!rbar.isOpen)}>
           <img src={userProfile} height="40" className="w3-circle" />
         </button>
-        <span class="themeSwitchContainer">
+        <span className="themeSwitchContainer">
           <ThemeSwitch className="" />
         </span>
       </header>

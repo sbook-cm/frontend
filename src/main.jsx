@@ -8,6 +8,11 @@ const Signin = React.lazy(() => import('./pages/Signin.jsx'));
 const Signup = React.lazy(() => import('./pages/Signup.jsx'));
 const Dashboard = React.lazy(() => import('./pages/Dashboard.jsx'));
 const Home = React.lazy(() => import('./pages/Home.jsx'));
+
+import SettingsLayout from './pages/settings/Layout.jsx';
+import SettingsOverview from './pages/settings/Overview.jsx';
+import SettingsSessions from './pages/settings/Sessions.jsx';
+
 // import { useEffect } from 'react';
 // import { useLocation } from 'react-router-dom';
 
@@ -54,6 +59,10 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
+            </Route>
+            <Route path="/settings" element={<SettingsLayout />}>
+              <Route index element={<SettingsOverview />} />
+              <Route path="sessions" element={<SettingsSessions />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -10,11 +10,17 @@ header.navheader
   margin: 20px
   padding: 0px
   height: 50px
-  width: 100%
+  width: calc(100% - 230px)
   //max-width: 500px
   border: var(--border-size) var(--border-color) solid
   background-color: rgba(var(--base1), 0.9)
   backdrop-filter: blur(20px)
+  z-index: 1000
+
+@media screen and (max-width: 700px)
+  header.navheader
+    width: 100%
+
 
 header.closed.navheader
   right: calc(-100% + 30px)
@@ -60,7 +66,7 @@ header.navheader .links a
   transition: 0.5px
   font-family: "Nova Square", system-ui
   text-decoration: none
-  font-size: 20px
+  font-size: 15px
   margin:
     left: 20px
     right: 20px
@@ -83,53 +89,21 @@ header.navheader span.themeSwitchContainer
   top: 0
   border: none
 
-.mobilebar
-  width: 100%
-  bottom: 0
-  left: 0
-  transition: 0.4s
-.mobilebar.closed
-  height: 0
+
 
 #rightbar
   transition: 0.4s
   background-color: rgba(var(--base3), 0.9)
   backdrop-filter: blur(20px)
   border: 1px var(--base4) solid
-  div.profile
-    display: block
-    width: 100%
-    padding: 5px
-    div:last-child
-      //float: right
-      h3
-        font-size: 15px
-        text-decoration: bold
-        margin-left: 5px
-        text-align: center
-    img
-      height: 50px
-      vertical-align: center
-      border-radius: 50px
-      border: 0.1px black solid
-    & > div
-      display: inline-block
-
-@media all and (min-width: 700px)
-  #rightbar
-    width: 320px
-    border-radius: 10px 0 0 10px !important
-    position: fixed
-    top: 100px
-    right: 0px
-    margin-right: 0
-    height: calc(100% - 100px - 10px)
-    //box-shadow: -1px 0px 10px black
-    &.closed
-      width: 0px
-
-
-#rightbar
+  border-radius: 10px 0 0 10px
+  position: fixed
+  top: 100px
+  right: 0px
+  margin-right: 0
+  height: calc(100% - 100px - 10px)
+  //box-shadow: -1px 0px 10px black
+  z-index: 900
   hr
     width: 80%
     text-align: center
@@ -153,3 +127,34 @@ header.navheader span.themeSwitchContainer
     text-align: center
     width: 100%
     font-size: large
+  &.closed
+    width: 0px
+  div.profile
+    display: block
+    width: 100%
+    padding: 5px
+    div:last-child
+      //float: right
+      h3
+        font-size: 15px
+        text-decoration: bold
+        margin-left: 5px
+        text-align: center
+    img
+      height: 50px
+      vertical-align: center
+      border-radius: 50px
+      border: 0.1px black solid
+    & > div
+      display: inline-block
+
+@media all and (max-width: 500px)
+  #rightbar
+    width: 100%
+    &.closed
+      width: 0px
+@media all and (min-width: 500px)
+  #rightbar
+    width: 300px
+    &.closed
+      width: 0px

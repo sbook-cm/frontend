@@ -1,0 +1,61 @@
+#root
+  --settings-leftbar-size: 250px
+
+
+#settings-toctree
+  position: fixed
+  top: 0px
+  left: 0
+  height: 100%
+  width: var(--settings-leftbar-size)
+  border-right: 1px var(--base9) solid !important
+  overflow: hidden
+  transition: 0.4s
+  backdrop-filter: blur(10px)
+  background-color: rgba(var(--base), 0.9)
+  .button:first-child
+    margin-top: 100px !important
+  .button
+    border-bottom: 0.1px var(--base3) solid !important
+    margin: 5px
+    padding: 5px
+    transition: 0.4s
+    font-size: 20px
+    display: block
+    text-align: left
+    &.selected
+      padding-left: 25px
+  & > .button:hover
+    padding-left: 30px
+
+
+@media all and (max-width: 1000px)
+  #root
+    --settings-leftbar-size: 250px
+@media all and (max-width: 700px)
+  #root
+    --settings-leftbar-size: 50px
+  #settings-toctree
+    .button
+      &.selected
+        padding-left: 5px
+      & span.desc
+        display: none
+  #settings-toctree:hover
+    width: 250px
+    .button span.desc
+      display: inline
+    .button
+      &.selected
+        padding-left: 10px
+      & span.desc
+        display: inline
+
+#sessions-list > li
+  font-family: "Nova Script", system-ui
+  font-size: 50px
+
+
+#settings-view
+  margin-left: calc(var(--settings-leftbar-size) + 20px)
+  margin-top: 100px

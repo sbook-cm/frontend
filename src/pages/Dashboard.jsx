@@ -93,9 +93,10 @@ function Dashboard() {
   useEffect(() => {
       setTimeout(function fetchEvents() {
         Event.get_latest(20).then(function(callevent) {
+          console.log(callevent);
           setEvents(callevent);
         });
-      }, 5000);
+      }, 50);
     }, []);
   return (
     <>
@@ -105,19 +106,50 @@ function Dashboard() {
         <h3 className="w3-center">What are we doing today?</h3>
         {events.map((event) => (
           <div key={event._id} className="center-card">
-              <p className="title">{event.params.username} came back</p>
-              <div className="desc">
-                <p>a session {event.params.sessionid} was accessed by a user {event.params.username}</p>
-              </div>
+            {event.eventType}
+            {event.eventType == "session-get" && (
+              <>
+                <p className="title">{event.params.username} came back</p>
+                <div className="desc">
+                  <p>a session {event.params.sessionid} was accessed by a user {event.params.username}</p>
+                </div>
+              </>
+            )}
+            {event.eventType == "follow" && (
+              <>
+                <img src={event.profile} />
+                <p className="title">{event.params.username} started following you</p>
+                <div className="desc">
+                  <p>
+                    fvdfsvfdfd
+                    /*
+
+                      NodeIterator
+
+                      filter
+
+                      Return Type:
+                      NodeFilter
+
+                      Description:
+                      The filter attribute must return filter.
+
+                      URL doc:
+                      http://html5index.org/DOM%20-%20NodeIterator.html#filter
+
+                    */
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         ))}
-
-        {events.length == 0 && (
-          <div className="w3-padding-64 w3-container">
-            Getting your data ready..., watcha this!
-            <Loader />
-          </div>
-        )}
+      {events.length == 0 && (
+        <div className="w3-padding-64 w3-container">
+          Getting your data ready..., watcha this!
+          <Loader />
+        </div>
+      )}
       </div>
       <div id="right">
       </div>
