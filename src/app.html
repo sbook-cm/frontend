@@ -4,9 +4,45 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nova+Cut&family=Nova+Mono&family=Nova+Oval&family=Nova+Round&family=Nova+Script&display=swap" rel="stylesheet">
+		<!-- update the version number as needed -->
+		<!--
+		<script defer src="/__/firebase/10.12.5/firebase-app-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-auth-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-database-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-firestore-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-functions-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-messaging-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-storage-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-analytics-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-remote-config-compat.js"></script>
+		<script defer src="/__/firebase/10.12.5/firebase-performance-compat.js"></script>
+		  initialize the SDK after all desired features are loaded, set useEmulator to false
+		  to avoid connecting the SDK to running emulators.
+		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+	-->
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+		<script>
+			let app = firebase.app();
+			// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+			// // The Firebase SDK is initialized and available here!
+			//
+			// firebase.auth().onAuthStateChanged(user => { });
+			// firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+			// firebase.firestore().doc('/foo/bar').get().then(() => { });
+			// firebase.functions().httpsCallable('yourFunction')().then(() => { });
+			// firebase.messaging().requestPermission().then(() => { });
+			// firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+			// firebase.analytics(); // call to activate
+			// firebase.analytics().logEvent('tutorial_completed');
+			// firebase.performance(); // call to activate
+			//
+			// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+		</script>
 	</body>
 </html>
