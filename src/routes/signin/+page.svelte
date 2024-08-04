@@ -1,5 +1,6 @@
 <style lang="sass">
   form
+    background-color: var(--base1)
     max-width: 500px
     margin: auto
     margin-top: 100px
@@ -23,34 +24,57 @@
           width: 100%
           left: 0
           display: inline-block
+        input
+          background-color: var(--base2)
+  .already-login-panel
+    font-family: 'Open Sans', Arial
+    span
+      background-color: #777a
+      border-radius: 3px
+      padding: 2px
+      font-family: var(--username-font), Arial
 </style>
 <script lang="ts">
   import '../base.sass';
+  import { Session, User } from '$lib/db.js';
+  export let data;
   let
     email: String = "",
     is_email: Boolean = true,
     number: String = "",
-    password: String = "";
+    password: String = "",
+    session: Session;
+  if(data.session) {
+    session = new Session(data.session, new User(data.user));
+  }
 </script>
-<form action="+page_submit" method="get" accept-charset="utf-8">
-  <label for="is_email" class="checkbox-slider round">
-    <input type="checkbox" id="is_email" name="is_email" bind:checked={is_email} />
-    <span></span>
-  </label>
+{#if session}
+  <div class="w3-panel w3-padding w3-large already-login-panel w3-red">
+    You are already login as <span>{session.user.name}</span>
+  </div>
+{/if}
+<div>
+
+</div>
+<form method="POST">
   <div class="form-entry" id="email-number-name-container">
+    <label for="is_email" class="checkbox-slider round horizontal">
+      <input type="checkbox" id="is_email" name="is_email" bind:checked={is_email} />
+      <span></span>
+    </label>
     <label class="form-entry-field" shown={is_email}>
       Your email:
-      <input type="email" name="email" bind:value={email}>
+      <input class="w3-input" type="email" name="email" bind:value={email}>
     </label>
     <label class="form-entry-field" shown={!is_email}>
       Your number:
-      <input type="tel" name="number" bind:value={number}>
+      <input class="w3-input" type="tel" name="number" bind:value={number}>
     </label>
   </div>
   <div class="form-entry" id="pasword-container">
     <label class="form-entry-field" shown="true">
       Your password:
-      <input type="password" name="password" bind:value={password}>
+      <input class="w3-input" type="password" name="password" bind:value={password}>
     </label>
   </div>
 </form>

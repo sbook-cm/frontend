@@ -15,7 +15,10 @@
   .container
     max-width: 600px
     padding: 20px
+    text-align: center
+    margin: auto
   .hero
+    text-align: center
     h1
       font-size: 10em
       margin: 0

@@ -12,7 +12,7 @@
     width: 0
     height: 0
     &:checked + span
-      background-color: #2196F3
+      background-color: var(--focus-a1)
       &:before
         -webkit-transform: translateX(26px)
         -ms-transform: translateX(26px)
@@ -43,3 +43,9 @@
       border-radius: 34px
       &:before
         border-radius: 50%
+  &.vertical
+    transform: rotate(90deg)
+
+
+html
+  background-color: var(--base)

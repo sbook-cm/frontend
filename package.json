@@ -34,5 +34,11 @@
 		"vite": "^5.0.3",
 		"vitest": "^2.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"chroma-js": "^2.6.0",
+		"jquery": "^3.7.1",
+		"svelte-tel-input": "^3.4.1",
+		"yarn": "^1.22.22"
+	}
 }
